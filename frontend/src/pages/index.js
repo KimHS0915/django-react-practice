@@ -8,7 +8,6 @@ import AccountsRoutes from './accounts';
 function Root() {
     return (
         <AppLayout>
-            Root
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route path="/accounts" component={AccountsRoutes} />
