@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'antd';
 import Suggestion from './Suggestion';
+import Axios from 'axios';
 import useAxios from 'axios-hooks';
 import { useAppContext } from 'store';
 import './SuggestionList.scss';
@@ -8,15 +9,40 @@ import './SuggestionList.scss';
 export default function SuggestionList({ style }) {
     const { store: { jwtToken }} = useAppContext();
 
-    const headers = { Authorization: `JWT ${jwtToken}` };
-    
-    const apiUrl = "http://localhost:8000/accounts/suggestions/";
+    const [userList, setUserList] = useState([]);
 
-    const [{ data: userList, loading, error }, refetch] = useAxios({
-        url: apiUrl,
+    const headers = { Authorization: `JWT ${jwtToken}` };
+
+    const [{ data: origUserList, loading, error }, refetch] = useAxios({
+        url: "http://localhost:8000/accounts/suggestions/",
         headers,
     });
 
+    useEffect(() => {
+        if (!origUserList)
+            setUserList([]);
+        else
+            setUserList(origUserList.map(user => ({
+                ...user,
+                is_follow: false,
+            })));
+    }, [origUserList]);
+
+    const onFollowUser = (username) => {
+        const data = { username }
+        const config = { headers }
+        Axios.post("http://localhost:8000/accounts/follow/", data, config)
+            .then(response => {
+                setUserList(prevUserList => 
+                    prevUserList.map(user => 
+                        user.username !== username ? user : { ...user, is_follow: true }    
+                    )
+                );
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     return (
         <div style={style}>
@@ -24,15 +50,15 @@ export default function SuggestionList({ style }) {
             {error && <div>Error</div>}
 
             <button onClick={() => refetch()}>Reload</button>
-            
+
             <Card title="Suggestions for you" size="small">
-                {userList &&
-                    userList.map(suggestionUser => (
-                        <Suggestion 
-                            key={suggestionUser.username}
-                            suggestionUser={suggestionUser} 
-                        />
-                    ))}
+                {userList.map(suggestionUser => (
+                    <Suggestion 
+                        key={suggestionUser.username}
+                        suggestionUser={suggestionUser}
+                        onFollowUser={onFollowUser}
+                    />
+                ))}
             </Card>            
         </div>
     );
