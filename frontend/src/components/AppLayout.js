@@ -1,11 +1,9 @@
 import React from 'react';
 import { Input, Menu } from 'antd';
 import "./AppLayout.scss";
-import StoryList from './StoryList';
-import SuggestionList from './SuggestionList';
 import LogoImage from 'assets/logo.png';
 
-function AppLayout({ children }) {
+function AppLayout({ children, sidebar }) {
     return (
         <div className="app">
             <div className="header">
@@ -25,8 +23,7 @@ function AppLayout({ children }) {
             </div>
             <div className="contents">{children}</div>
             <div className="sidebar">
-                <StoryList style={{ marginBottom: "1rem" }} />
-                <SuggestionList />
+                {sidebar}
             </div>
             <div className="footer">&copy; 2020. KimHS</div>
         </div>

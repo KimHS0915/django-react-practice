@@ -6,6 +6,7 @@ import Axios from 'axios';
 import { setToken } from 'store';
 // import useLocalStorage from 'utils/useLocalStorage';
 import { useAppContext } from 'store';
+import parseErrorMessage from 'utils/forms';
 
 function Login() {
     const { dispatch } = useAppContext();
@@ -52,16 +53,8 @@ function Login() {
                         icon: <FrownOutlined style={{ color: "red" }} />
                     });
 
-                    const { data: FieldsErrorMessages } = error.response;
-                    setFieldErrors(
-                        Object.entries(FieldsErrorMessages).reduce((acc, [fieldName, errors]) => {
-                            acc[fieldName] = {
-                                validateStatus: "error",
-                                help: errors.join(" "),
-                            }
-                            return acc;
-                        }, {})
-                    )
+                    const { data: fieldsErrorMessages } = error.response;
+                    setFieldErrors(parseErrorMessage(fieldsErrorMessages));
                 }
             }
         }
