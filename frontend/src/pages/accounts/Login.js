@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Card, Form, Input, Button, notification } from 'antd';
 import { SmileOutlined, FrownOutlined } from '@ant-design/icons';
-import Axios from 'axios';
 import { setToken } from 'store';
-// import useLocalStorage from 'utils/useLocalStorage';
 import { useAppContext } from 'store';
 import parseErrorMessage from 'utils/forms';
+import { axiosInstance } from 'api';
 
 function Login() {
     const { dispatch } = useAppContext();
 
     const location = useLocation();
     const history = useHistory();
-
-    // const [jwtToken, setJwtToken] = useLocalStorage('jwtToken', '');
 
     const [fieldErrors, setFieldErrors] = useState({});
 
@@ -28,8 +25,8 @@ function Login() {
             const data = { username, password };
 
             try {
-                const response = await Axios.post(
-                    "http://localhost:8000/accounts/token/", data
+                const response = await axiosInstance.post(
+                    "/accounts/token/", data
                 );
                 const { 
                     data: { token: jwtToken } 

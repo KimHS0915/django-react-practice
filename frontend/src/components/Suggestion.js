@@ -1,23 +1,17 @@
 import React from 'react';
 import { Avatar, Button } from 'antd';
-// import { UserOutlined } from '@ant-design/icons';
 import './Suggestion.scss';
 
 export default function Suggestion({ suggestionUser, onFollowUser }) {
     const { username, name, avatar_url, is_follow } = suggestionUser;
+    console.log(suggestionUser);
     return (
         <div className="suggestion">
             <div className="avatar">
                 <Avatar 
                     size="small"
-                    icon={
-                        <img
-                            src={"http://localhost:8000" + avatar_url}
-                            alt={`${username}'s avatar`}
-                        />
-                    }
+                    icon={<img src={avatar_url} alt={`${username}'s avatar`} />}
                 />
-                {/* <UserOutlined /> */}
             </div>
             <div className="username">
                 {name.length === 0 ? username : name}
