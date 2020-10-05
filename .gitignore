@@ -65,6 +65,7 @@ db.sqlite3
 db.sqlite3-journal
 backend/static
 backend/media
+secret_key.json
 
 # Flask stuff:
 instance/
