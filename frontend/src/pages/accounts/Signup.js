@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Form, Input, Button, notification } from 'antd';
+import { Card, Form, Input, Button, notification } from 'antd';
 import { SmileOutlined, FrownOutlined } from '@ant-design/icons';
 import { axiosInstance } from 'api';
 
@@ -52,54 +52,60 @@ function Signup() {
     }
 
     return (
-        <div>
-            <Form
-                {...layout}
-                onFinish={onFinish}
-            >
-                <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: "Username을 입력하세요.",
-                        },
-                        {
-                            min: 5,
-                            message: "5글자 이상 입력하세요."
-                        },
-                    ]}
-                    hasFeedback
-                    {...fieldErrors.username}
+        <Card title="회원가입">
+            <div>
+                <Form
+                    {...layout}
+                    onFinish={onFinish}
                 >
-                    <Input />
-                </Form.Item>
-                
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: '패스워드를 입력하세요.',
-                        },
-                    ]}
-                    {...fieldErrors.password}
-                >
-                    <Input.Password />
-                </Form.Item>
-                
-                <Form.Item {...tailLayout} valuePropName="checked">
-                </Form.Item>
-                
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
-            </Form>      
-        </div>
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Username을 입력하세요.",
+                            },
+                            {
+                                min: 5,
+                                message: "5글자 이상 입력하세요."
+                            },
+                        ]}
+                        hasFeedback
+                        {...fieldErrors.username}
+                    >
+                        <Input maxLength="12" />
+                    </Form.Item>
+                    
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                message: '패스워드를 입력하세요',
+                            },
+                            {
+                                min: 8,
+                                message: "8글자 이상 입력하세요.",
+                            }
+                        ]}
+                        {...fieldErrors.password}
+                    >
+                        <Input.Password maxLength="12" />
+                    </Form.Item>
+                    
+                    <Form.Item {...tailLayout} valuePropName="checked">
+                    </Form.Item>
+                    
+                    <Form.Item {...tailLayout}>
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>      
+            </div>            
+        </Card>
     );
 }
 
