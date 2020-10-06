@@ -12,7 +12,7 @@ export default function SuggestionList({ style }) {
 
     const headers = { Authorization: `JWT ${jwtToken}` };
 
-    const [{ data: origUserList, loading, error }, refetch] = useAxios({
+    const [{ data: origUserList, loading, error }] = useAxios({
         url: "/accounts/suggestions/",
         headers,
     });

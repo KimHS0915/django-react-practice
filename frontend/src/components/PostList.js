@@ -5,13 +5,13 @@ import { useAppContext } from 'store';
 import { axiosInstance, useAxios } from 'api';
 
 function PostList() {
-    const { store: { jwtToken }, dispatch } = useAppContext();
+    const { store: { jwtToken }} = useAppContext();
 
     const [postList, setPostList] = useState([]);
 
     const headers = { Authorization: `JWT ${jwtToken}` };
 
-    const [{ data: originPostList, loading, error }, refetch] = useAxios({
+    const [{ data: originPostList }] = useAxios({
         url: "/api/posts/",
         headers,
     });

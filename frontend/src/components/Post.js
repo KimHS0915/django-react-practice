@@ -6,8 +6,8 @@ import CommentList from './CommentList';
 function Post({ post, handleLike }) {
 
 
-    const { author, caption, location, photo, tag_set, is_like } = post;
-    const { username, name, avatar_url } = author;
+    const { author, caption, location, photo, is_like } = post;
+    const { username, avatar_url } = author;
 
 
 
