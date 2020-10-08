@@ -4,4 +4,10 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    pass
+    list_display = [
+        'username',
+        'first_name',
+        'last_name',
+    ]
+    list_per_page = 20
+    search_fields = ['username', 'first_name', 'last_name']

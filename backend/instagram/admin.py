@@ -7,6 +7,9 @@ from .models import Post, Tag, Comment
 class PostAdmin(admin.ModelAdmin):
     list_display = ["photo_tag", "caption"]
     list_display_links = ["caption"]
+    list_per_page = 10
+    list_filter = ("created_at", "updated_at")
+    search_fields = ["caption"]
 
     def photo_tag(self, post):
         return mark_safe(f"<img src={post.photo.url} style='width: 100px;' />")
@@ -19,4 +22,7 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["author", "post", "message"]
+    list_per_page = 20
+    list_filter = ("created_at", "updated_at")
+    search_fields = ["message"]
