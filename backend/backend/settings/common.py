@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli', # before django.contrib.admin
     # django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -160,3 +161,6 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': timedelta(seconds=300),
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
 }
+
+
+GRAPPELLI_ADMIN_TITLE = "Admin"

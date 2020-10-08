@@ -5,6 +5,7 @@ from django.urls import path, include
 from django_pydenticon.views import image as pydenticon_image
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('identicon/image/<path:data>.png', pydenticon_image, name='pydenticon_image'),
