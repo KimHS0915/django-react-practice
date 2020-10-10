@@ -13,6 +13,11 @@ from .serializers import PostSerializer, CommentSerializer
 
 
 class PostViewSet(ModelViewSet):
+    """
+    Post API
+    ---
+    post CRUD, like, unlike
+    """
     queryset = (
         Post.objects.all()
         .select_related('author')
@@ -54,6 +59,11 @@ class PostViewSet(ModelViewSet):
 
 
 class CommentViewSet(ModelViewSet):
+    """
+    Comment API
+    ---
+    comment CRUD
+    """
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 

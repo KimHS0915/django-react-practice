@@ -12,6 +12,11 @@ User = get_user_model()
 
 
 class SignupView(CreateAPIView):
+    """
+    Sign up API
+    ---
+    sign up
+    """
     model = User
     serializer_class = SignupSerializer
     permission_classes = [
@@ -19,6 +24,11 @@ class SignupView(CreateAPIView):
     ]
 
 class SuggestionListAPIView(ListAPIView):
+    """
+    Suggestion API
+    ---
+    Show suggestion
+    """
     queryset = User.objects.all()
     serializer_class = SuggestionUserSerializer
 
@@ -31,6 +41,11 @@ class SuggestionListAPIView(ListAPIView):
 
 @api_view(['POST'])
 def user_follow(request):
+    """
+    Follow API
+    ---
+    follow
+    """
     username = request.data['username']
 
     follow_user = get_object_or_404(User, username=username, is_active=True)
@@ -43,6 +58,11 @@ def user_follow(request):
 
 @api_view(['POST'])
 def user_unfollow(request):
+    """
+    Unfollow API
+    ---
+    unfollow
+    """
     username = request.data['username']
 
     follow_user = get_object_or_404(User, username=username, is_active=True)

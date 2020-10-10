@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     # third apps
     'corsheaders',
     'django_pydenticon',
-    'drf_yasg',
     'rest_framework',
     # local apps
     'accounts',
