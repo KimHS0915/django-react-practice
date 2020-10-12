@@ -6,6 +6,7 @@ import { setToken } from 'store';
 import { useAppContext } from 'store';
 import parseErrorMessage from 'utils/forms';
 import { axiosInstance } from 'api';
+import './Login.scss';
 
 function Login() {
     const { dispatch } = useAppContext();
@@ -59,13 +60,14 @@ function Login() {
     }
 
     return (
-        <Card title="로그인">
+        <Card title="로그인" className="card">
             <div>
                 <Form
                     {...layout}
                     onFinish={onFinish}
                 >
-                    <Form.Item
+                    <Form.Item 
+                        className="username" 
                         label="Username"
                         name="username"
                         rules={[
@@ -86,6 +88,7 @@ function Login() {
                     </Form.Item>
                     
                     <Form.Item
+                        className='password' 
                         label="Password"
                         name="password"
                         rules={[
@@ -103,11 +106,14 @@ function Login() {
                     </Form.Item>
                     
                     <Form.Item {...tailLayout}>
-                        <Button type="primary"  htmlType="submit">
+                        <Button
+                            className="submit"  
+                            type="primary"  htmlType="submit"
+                        >
                             Submit
                         </Button>
                     </Form.Item>
-                </Form>      
+                </Form>
             </div>
         </Card>
     );

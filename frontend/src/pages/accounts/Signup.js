@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Card, Form, Input, Button, notification } from 'antd';
 import { SmileOutlined, FrownOutlined } from '@ant-design/icons';
 import { axiosInstance } from 'api';
+import './Signup.scss';
 
 function Signup() {
     const history = useHistory();
@@ -52,13 +53,14 @@ function Signup() {
     }
 
     return (
-        <Card title="회원가입">
+        <Card title="회원가입" className="card">
             <div>
                 <Form
                     {...layout}
                     onFinish={onFinish}
                 >
                     <Form.Item
+                        className="username" 
                         label="Username"
                         name="username"
                         rules={[
@@ -78,6 +80,7 @@ function Signup() {
                     </Form.Item>
                     
                     <Form.Item
+                        className="password" 
                         label="Password"
                         name="password"
                         rules={[
@@ -99,7 +102,10 @@ function Signup() {
                     </Form.Item>
                     
                     <Form.Item {...tailLayout}>
-                        <Button type="primary" htmlType="submit">
+                        <Button 
+                            type="primary" htmlType="submit"
+                            className="submit"
+                        >
                             Submit
                         </Button>
                     </Form.Item>

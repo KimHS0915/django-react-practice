@@ -1,0 +1,22 @@
+.card {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    text-align: center;
+    width: 360px;
+    height: 300px;
+  
+    .username {
+      width: 90%;
+    }
+    
+    .password {
+      width: 90%;
+    }
+  
+    .submit {
+      margin-right: 80px;
+    }
+  
+  }
+  
