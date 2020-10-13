@@ -19,3 +19,24 @@
   }
 
 }
+
+.card2 {
+  position: absolute;
+  top: 310px;
+  left: 30%;
+  width: 360px;
+  height: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+
+  .container {
+    padding: 2px 16px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+
+    .mvsignup {
+      margin-left: 10px;
+    }
+  }
+}
