@@ -12,10 +12,10 @@ function Signup() {
 
     const onFinish = (values) => {
         async function fn() {
-            const { username, password } = values;
+            const { username, password, email } = values;
             setFieldErrors({});
 
-            const data = { username, password };
+            const data = { username, password, email };
 
             try {
                 await axiosInstance.post(
@@ -54,12 +54,28 @@ function Signup() {
 
     return (
         <>
-            <Card title="회원가입" className="card">
+            <Card title="회원가입" className="card3">
                 <div>
                     <Form
                         {...layout}
                         onFinish={onFinish}
                     >
+                        <Form.Item
+                            className="email" 
+                            label="Email"
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Email을 입력하세요.",
+                                },
+                            ]}
+                            hasFeedback
+                            {...fieldErrors.email}
+                        >
+                            <Input />
+                        </Form.Item>
+                        
                         <Form.Item
                             className="username" 
                             label="Username"
@@ -113,7 +129,7 @@ function Signup() {
                     </Form>      
                 </div>            
             </Card>
-            <div className="card2">
+            <div className="card4">
                 <div className="container">
                 계정이 있으신가요?
                     <a className="mvsignup" href="/accounts/login">로그인</a>

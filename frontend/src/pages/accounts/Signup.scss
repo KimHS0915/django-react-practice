@@ -1,28 +1,32 @@
-.card {
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    text-align: center;
-    width: 360px;
-    height: 300px;
+.card3 {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  text-align: center;
+  width: 360px;
+  height: 360px;
   
-    .username {
-      width: 90%;
-    }
+  .username {
+    width: 90%;
+  }
     
-    .password {
-      width: 90%;
-    }
-  
-    .submit {
-      margin-right: 80px;
-    }
-  
+  .password {
+    width: 90%;
   }
 
-.card2 {
+  .email {
+    width: 90%;
+  }
+    
+  .submit {
+    margin-right: 80px;
+  }
+  
+}
+
+.card4 {
   position: absolute;
-  top: 310px;
+  top: 380px;
   left: 30%;
   width: 360px;
   height: 50px;
