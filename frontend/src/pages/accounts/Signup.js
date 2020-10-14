@@ -53,65 +53,73 @@ function Signup() {
     }
 
     return (
-        <Card title="회원가입" className="card">
-            <div>
-                <Form
-                    {...layout}
-                    onFinish={onFinish}
-                >
-                    <Form.Item
-                        className="username" 
-                        label="Username"
-                        name="username"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Username을 입력하세요.",
-                            },
-                            {
-                                min: 5,
-                                message: "5글자 이상 입력하세요."
-                            },
-                        ]}
-                        hasFeedback
-                        {...fieldErrors.username}
+        <>
+            <Card title="회원가입" className="card">
+                <div>
+                    <Form
+                        {...layout}
+                        onFinish={onFinish}
                     >
-                        <Input maxLength="12" />
-                    </Form.Item>
-                    
-                    <Form.Item
-                        className="password" 
-                        label="Password"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: '패스워드를 입력하세요',
-                            },
-                            {
-                                min: 8,
-                                message: "8글자 이상 입력하세요.",
-                            }
-                        ]}
-                        {...fieldErrors.password}
-                    >
-                        <Input.Password maxLength="12" />
-                    </Form.Item>
-                    
-                    <Form.Item {...tailLayout} valuePropName="checked">
-                    </Form.Item>
-                    
-                    <Form.Item {...tailLayout}>
-                        <Button 
-                            type="primary" htmlType="submit"
-                            className="submit"
+                        <Form.Item
+                            className="username" 
+                            label="Username"
+                            name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Username을 입력하세요.",
+                                },
+                                {
+                                    min: 5,
+                                    message: "5글자 이상 입력하세요."
+                                },
+                            ]}
+                            hasFeedback
+                            {...fieldErrors.username}
                         >
-                            Submit
-                        </Button>
-                    </Form.Item>
-                </Form>      
-            </div>            
-        </Card>
+                            <Input maxLength="12" />
+                        </Form.Item>
+                        
+                        <Form.Item
+                            className="password" 
+                            label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: '패스워드를 입력하세요',
+                                },
+                                {
+                                    min: 8,
+                                    message: "8글자 이상 입력하세요.",
+                                }
+                            ]}
+                            {...fieldErrors.password}
+                        >
+                            <Input.Password maxLength="12" />
+                        </Form.Item>
+                        
+                        <Form.Item {...tailLayout} valuePropName="checked">
+                        </Form.Item>
+                        
+                        <Form.Item {...tailLayout}>
+                            <Button 
+                                type="primary" htmlType="submit"
+                                className="submit"
+                            >
+                                Submit
+                            </Button>
+                        </Form.Item>
+                    </Form>      
+                </div>            
+            </Card>
+            <div className="card2">
+                <div className="container">
+                계정이 있으신가요?
+                    <a className="mvsignup" href="/accounts/login">로그인</a>
+                </div>
+            </div>
+        </>
     );
 }
 
