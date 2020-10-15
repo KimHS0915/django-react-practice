@@ -6,6 +6,7 @@ import { setToken } from 'store';
 import { useAppContext } from 'store';
 import parseErrorMessage from 'utils/forms';
 import { axiosInstance } from 'api';
+import LogoImage from 'assets/logo.png';
 import './Login.scss';
 
 function Login() {
@@ -61,7 +62,7 @@ function Login() {
 
     return (
         <>
-            <Card title="로그인" className="card">
+            <Card title={<img src={LogoImage} alt="logo" />} className="card">
                 <div>
                     <Form
                         {...layout}
@@ -111,7 +112,7 @@ function Login() {
                                 className="submit"  
                                 type="primary"  htmlType="submit"
                             >
-                                Submit
+                                로그인
                             </Button>
                         </Form.Item>
                     </Form>

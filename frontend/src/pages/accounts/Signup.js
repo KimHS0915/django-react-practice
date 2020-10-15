@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Card, Form, Input, Button, notification } from 'antd';
 import { SmileOutlined, FrownOutlined } from '@ant-design/icons';
 import { axiosInstance } from 'api';
+import LogoImage from 'assets/logo.png';
 import './Signup.scss';
 
 function Signup() {
@@ -12,10 +13,10 @@ function Signup() {
 
     const onFinish = (values) => {
         async function fn() {
-            const { username, password, email } = values;
+            const { username, password, email, first_name, last_name } = values;
             setFieldErrors({});
 
-            const data = { username, password, email };
+            const data = { username, password, email, first_name, last_name };
 
             try {
                 await axiosInstance.post(
@@ -54,7 +55,7 @@ function Signup() {
 
     return (
         <>
-            <Card title="회원가입" className="card3">
+            <Card title={<img src={LogoImage} alt="logo" />} className="card3">
                 <div>
                     <Form
                         {...layout}
@@ -75,7 +76,39 @@ function Signup() {
                         >
                             <Input />
                         </Form.Item>
-                        
+
+                        <Form.Item
+                            className="firstname" 
+                            label="Firstname"
+                            name="first_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Firstname을 입력하세요.",
+                                },
+                            ]}
+                            hasFeedback
+                            {...fieldErrors.firstname}
+                        >
+                            <Input />
+                        </Form.Item>
+
+                        <Form.Item
+                            className="lastname" 
+                            label="Lastname"
+                            name="last_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Lastname을 입력하세요.",
+                                },
+                            ]}
+                            hasFeedback
+                            {...fieldErrors.lastname}
+                        >
+                            <Input />
+                        </Form.Item>
+
                         <Form.Item
                             className="username" 
                             label="Username"
@@ -123,7 +156,7 @@ function Signup() {
                                 type="primary" htmlType="submit"
                                 className="submit"
                             >
-                                Submit
+                                가입
                             </Button>
                         </Form.Item>
                     </Form>      

@@ -4,7 +4,7 @@
   left: 30%;
   text-align: center;
   width: 360px;
-  height: 360px;
+  height: 470px;
   
   .username {
     width: 90%;
@@ -17,6 +17,14 @@
   .email {
     width: 90%;
   }
+
+  .firstname {
+    width: 90%;
+  }
+
+  .lastname {
+    width: 90%
+  }
     
   .submit {
     margin-right: 80px;
@@ -26,7 +34,7 @@
 
 .card4 {
   position: absolute;
-  top: 380px;
+  top: 480px;
   left: 30%;
   width: 360px;
   height: 50px;
