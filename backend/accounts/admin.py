@@ -6,8 +6,8 @@ from .models import User
 class UserAdmin(admin.ModelAdmin):
     list_display = [
         'username',
-        'first_name',
-        'last_name',
+        'name',
+        'email',
     ]
     list_per_page = 20
-    search_fields = ['username', 'first_name', 'last_name']
+    search_fields = ['username', 'name']

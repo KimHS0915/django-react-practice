@@ -14,8 +14,7 @@ class SignupSerializer(serializers.ModelSerializer):
         user = User.objects.create(
             username=validated_data['username'],
             email=validated_data['email'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
+            name=validated_data['name'],
         )
         user.set_password(validated_data['password'])
         user.save()
@@ -23,7 +22,7 @@ class SignupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['pk', 'username', 'password', 'first_name', 'last_name', 'email']
+        fields = ['pk', 'username', 'password', 'name', 'email']
 
 class SuggestionUserSerializer(serializers.ModelSerializer):
     avatar_url = serializers.SerializerMethodField('avatar_url_field')
