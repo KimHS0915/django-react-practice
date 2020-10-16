@@ -13,10 +13,10 @@ function Signup() {
 
     const onFinish = (values) => {
         async function fn() {
-            const { username, password, email, first_name, last_name } = values;
+            const { username, password, email, name } = values;
             setFieldErrors({});
 
-            const data = { username, password, email, first_name, last_name };
+            const data = { username, password, email, name };
 
             try {
                 await axiosInstance.post(
@@ -78,35 +78,19 @@ function Signup() {
                         </Form.Item>
 
                         <Form.Item
-                            className="firstname" 
-                            label="Firstname"
-                            name="first_name"
+                            className="name" 
+                            label="Name"
+                            name="name"
                             rules={[
                                 {
                                     required: true,
-                                    message: "Firstname을 입력하세요.",
+                                    message: "Name을 입력하세요.",
                                 },
                             ]}
                             hasFeedback
-                            {...fieldErrors.firstname}
+                            {...fieldErrors.name}
                         >
-                            <Input />
-                        </Form.Item>
-
-                        <Form.Item
-                            className="lastname" 
-                            label="Lastname"
-                            name="last_name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Lastname을 입력하세요.",
-                                },
-                            ]}
-                            hasFeedback
-                            {...fieldErrors.lastname}
-                        >
-                            <Input />
+                            <Input maxLength="50"/>
                         </Form.Item>
 
                         <Form.Item

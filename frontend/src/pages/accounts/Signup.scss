@@ -1,11 +1,11 @@
 .card3 {
   position: absolute;
-  top: 10%;
-  left: 30%;
+  top: 50px;
+  left: 40%;
   text-align: center;
   width: 360px;
   height: 470px;
-  
+
   .username {
     width: 90%;
   }
@@ -18,12 +18,8 @@
     width: 90%;
   }
 
-  .firstname {
+  .name {
     width: 90%;
-  }
-
-  .lastname {
-    width: 90%
   }
     
   .submit {
@@ -34,8 +30,8 @@
 
 .card4 {
   position: absolute;
-  top: 480px;
-  left: 30%;
+  top: 530px;
+  left: 40%;
   width: 360px;
   height: 50px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
