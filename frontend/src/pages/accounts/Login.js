@@ -86,7 +86,7 @@ function Login() {
                             {...fieldErrors.username}
                             {...fieldErrors.non_field_errors}
                         >
-                            <Input />
+                            <Input placeholder="Username" />
                         </Form.Item>
                         
                         <Form.Item
@@ -101,7 +101,7 @@ function Login() {
                             ]}
                             {...fieldErrors.password}
                         >
-                            <Input.Password />
+                            <Input.Password placeholder="Password" />
                         </Form.Item>
                         
                         <Form.Item {...tailLayout}  valuePropName="checked">

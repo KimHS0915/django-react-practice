@@ -74,7 +74,7 @@ function Signup() {
                             hasFeedback
                             {...fieldErrors.email}
                         >
-                            <Input />
+                            <Input placeholder="Email" />
                         </Form.Item>
 
                         <Form.Item
@@ -90,7 +90,7 @@ function Signup() {
                             hasFeedback
                             {...fieldErrors.name}
                         >
-                            <Input maxLength="50"/>
+                            <Input maxLength="50" placeholder="Name" />
                         </Form.Item>
 
                         <Form.Item
@@ -110,7 +110,7 @@ function Signup() {
                             hasFeedback
                             {...fieldErrors.username}
                         >
-                            <Input maxLength="12" />
+                            <Input maxLength="12" placeholder="Username" />
                         </Form.Item>
                         
                         <Form.Item
@@ -129,7 +129,7 @@ function Signup() {
                             ]}
                             {...fieldErrors.password}
                         >
-                            <Input.Password maxLength="12" />
+                            <Input.Password maxLength="12" placeholder="Password" />
                         </Form.Item>
                         
                         <Form.Item {...tailLayout} valuePropName="checked">
