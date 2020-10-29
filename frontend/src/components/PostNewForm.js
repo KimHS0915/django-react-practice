@@ -52,6 +52,7 @@ function PostNewForm() {
             const response = await axiosInstance.post("/api/posts/", formData, { headers });
             console.log("success response :", response);
             history.push("/");
+            window.location.reload(true);
         } catch (error) {
             if (error.response) {
                 const { status, data: fieldsErrorMessages } = error.response;
